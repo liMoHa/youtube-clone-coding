@@ -1,0 +1,46 @@
+.ytheader {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.ytheader__logo{
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-right: 10px;
+}
+
+.ytheader__img{
+    width:30px;
+    margin-right: 5px;
+}
+
+.ytheader__title{
+    font-weight: bold;
+}
+
+.ytheader__search{
+    flex:1;
+    display: flex;
+}
+
+.ytheader__input{
+    width: 100%;
+    padding: 5px;
+}
+
+.ytheader__button{
+   background-color: rgb(75, 73, 73);
+   border: none;
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+    width: 30px;
+}
+
+.ytheader__button img{
+    width:90%;
+}
+

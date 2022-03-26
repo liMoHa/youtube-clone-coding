@@ -1,7 +1,12 @@
-import './app.css';
+import React from 'react';
+import YoutubeHeader from "./components/YoutubeHeader";
 
 function App() {
-  return <h1> hello world!</h1>;
+  return (
+    <>
+      <YoutubeHeader />
+    </>
+  );
 }
 
 export default App;
