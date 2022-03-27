@@ -9,7 +9,7 @@ const VideoDetails = ({ video, isVideoClicked }) => {
     >
       <div className={styles.videoDetails__video}>
         <iframe
-          width="610"
+          width="600"
           height="315"
           src={`https://www.youtube.com/embed/${video.id}`}
           title="YouTube video player"
@@ -23,7 +23,7 @@ const VideoDetails = ({ video, isVideoClicked }) => {
         <h4 className={styles.videoDetails__channelTitle}>
           {video.channelTitle}
         </h4>
-        <p>{video.description}</p>
+        <p className={styles.videoDetails__description}>{video.description}</p>
       </section>
     </article>
   );

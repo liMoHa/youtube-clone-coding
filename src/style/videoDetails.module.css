@@ -1,18 +1,21 @@
-.videoDetails__video{
-    position: sticky;
-    top: 0;
+.videoDetails__video {
+  position: sticky;
+  top: 0;
 }
 
-.videoDetails__section{
-    display: flex;
-    flex-direction: column;
+.videoDetails__section {
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  /* text 넘치는 거 어떻게 해결할지...? */
+  overflow-x: auto;
+  width: 600px;
 }
 
-.videoDetails__title{
-    margin: 10px 0 20px 0;
+.videoDetails__title {
+  margin: 10px 0 20px 0;
 }
 
-.videoDetails__channelTitle{
-    margin: 0;
+.videoDetails__channelTitle {
+  margin: 0;
 }
-
