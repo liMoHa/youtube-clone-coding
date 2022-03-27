@@ -6,6 +6,7 @@
 }
 
 .ytheader__logo{
+    text-decoration: none;
     display: flex;
     align-items: center;
     color: white;
