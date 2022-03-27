@@ -1,0 +1,18 @@
+.videoDetails__video{
+    position: sticky;
+    top: 0;
+}
+
+.videoDetails__section{
+    display: flex;
+    flex-direction: column;
+}
+
+.videoDetails__title{
+    margin: 10px 0 20px 0;
+}
+
+.videoDetails__channelTitle{
+    margin: 0;
+}
+

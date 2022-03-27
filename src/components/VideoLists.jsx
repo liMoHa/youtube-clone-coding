@@ -2,8 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../style/videoLists.module.css";
 
-const VideoLists = () => {
+const VideoLists = ({ onClickVideo, isVideoClicked, setVideoClicked }) => {
   const [videoLists, setVideoLists] = useState([]);
+
+  const onClick = (videoInfo) => {
+    console.log('hi?', videoInfo);
+    onClickVideo(videoInfo);
+    // 바로 상태를 내려주는 건 좋지 않은 방법일까?
+    setVideoClicked(true);
+  };
 
   useEffect(() => {
     // fetch로도 해볼까
@@ -13,19 +20,26 @@ const VideoLists = () => {
       )
       .then((response) => {
         const videoLists = response.data.items.map((item) => {
+          const id = item.id;
+          const title = item.snippet.title;
+          const channelTitle = item.snippet.channelTitle;
+          const thumbnail = item.snippet.thumbnails.default.url;
+          const description = item.snippet.description;
+
           return (
-            <li className={styles.videolists__list} key={item.id}>
+            <li
+              className={styles.videolists__list}
+              key={id}
+              onClick={() => onClick({ id, title, channelTitle, description })}
+            >
               {/* div에 background-img로 넣는 거랑 img로 넣는 거 상황 구분? */}
               <div className={styles.list__thumbnail}>
-                <img
-                  src={item.snippet.thumbnails.default.url}
-                  alt="thumbnail"
-                />
+                <img src={thumbnail} alt="thumbnail" />
               </div>
               <div className={styles.list__info}>
                 {/* 여기 무슨 태그로 했을까? */}
-                <span>{item.snippet.title}</span>
-                <span>{item.snippet.channelTitle}</span>
+                <span>{title}</span>
+                <span>{channelTitle}</span>
               </div>
             </li>
           );
@@ -35,19 +49,7 @@ const VideoLists = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  return <ul className={styles.videolists}>{videoLists}</ul>;
+  return <ul className={styles.videolists} style={{gridTemplateColumns: isVideoClicked ? '1fr' : '1fr 1fr', padding: isVideoClicked ? '0' : '0 10px'}}>{videoLists}</ul>;
 };
 
 export default VideoLists;
-
-{
-  /* <iframe
-  width="560"
-  height="315"
-  src={`https://www.youtube.com/embed/${item.id}`}
-  title="YouTube video player"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-/>; */
-}
