@@ -6,7 +6,6 @@ const YoutubeHeader = ({onSubmitValue}) => {
     const onSubmit = (e) =>{
         e.preventDefault();
         onSubmitValue(inputRef.current.value);
-        e.currentTarget.reset();
     }
     return (
         <header className={styles.ytheader}>

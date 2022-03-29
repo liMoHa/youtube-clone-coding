@@ -26,11 +26,12 @@ const VideoLists = ({
       .get(currentUrl)
       .then((response) => {
         const videoLists = response.data.items.map((item, i) => {
+          const id = isSubmitted ? item.id.videoId : item.id;
           const title = item.snippet.title;
-          const id = item.snippet.channelId+title;
           const channelTitle = item.snippet.channelTitle;
           const thumbnail = item.snippet.thumbnails.default.url;
           const description = item.snippet.description;
+          const key = item.snippet.channelId+title;
 
           return (
             <li
