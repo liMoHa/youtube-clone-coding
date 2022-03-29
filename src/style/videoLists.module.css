@@ -11,6 +11,7 @@
   padding: 10px;
   box-shadow: 2px 2px 5px rgb(214, 214, 214);
   transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
 .videolists__list:hover{
