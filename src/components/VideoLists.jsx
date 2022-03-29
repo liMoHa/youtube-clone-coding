@@ -36,7 +36,7 @@ const VideoLists = ({
           return (
             <li
               className={styles.videolists__list}
-              key={id}
+              key={key}
               onClick={() => onClick({ id, title, channelTitle, description })}
             >
               {/* div에 background-img로 넣는 거랑 img로 넣는 거 상황 구분? */}
