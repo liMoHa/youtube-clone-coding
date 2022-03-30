@@ -25,13 +25,13 @@ const VideoLists = ({
     axios
       .get(currentUrl)
       .then((response) => {
-        const videoLists = response.data.items.map((item, i) => {
+        const videoLists = response.data.items.map((item) => {
           const id = isSubmitted ? item.id.videoId : item.id;
           const title = item.snippet.title;
           const channelTitle = item.snippet.channelTitle;
           const thumbnail = item.snippet.thumbnails.default.url;
           const description = item.snippet.description;
-          const key = item.snippet.channelId+title;
+          const key = item.snippet.channelId + title;
 
           return (
             <li
@@ -41,7 +41,6 @@ const VideoLists = ({
             >
               {/* div에 background-img로 넣는 거랑 img로 넣는 거 상황 구분? */}
               <div className={styles.list__thumbnail}>
-
                 <img src={thumbnail} alt="thumbnail" />
               </div>
               <div className={styles.list__info}>

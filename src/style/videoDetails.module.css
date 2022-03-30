@@ -1,15 +1,22 @@
+.videoDetails {
+  flex-shrink: 1.5;
+  /* flex-basis: 2.5; */
+  flex-direction: column;
+  width: 100%;
+}
+
 .videoDetails__video {
   position: sticky;
   top: 0;
 }
 
+.videoDetails__video iframe {
+  width: 100%;
+  min-width: 500px;
+}
+
 .videoDetails__section {
   padding-right: 10px;
-  display: flex;
-  flex-direction: column;
-  /* text 넘치는 거 어떻게 해결할지...? */
-  overflow-x: auto;
-  width: 600px;
 }
 
 .videoDetails__title {

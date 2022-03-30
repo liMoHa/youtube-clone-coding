@@ -1,7 +1,10 @@
 .videolists {
-    margin: 0;
-    display: grid;
-    gap: 5px 10px;
+  /* flex-basis: 1; */
+  flex-shrink: 3;
+  flex-grow: 1;
+  margin: 0;
+  display: grid;
+  gap: 5px 10px;
 }
 
 .videolists__list {
@@ -14,20 +17,27 @@
   cursor: pointer;
 }
 
-.videolists__list:hover{
-    transform: scale(1.05);
+.videolists__list:hover {
+  transform: scale(1.05);
 }
 
 .list__thumbnail {
-  margin-right: 10px;
+  flex:1.2;
+  margin-right: 10px; 
+}
+
+/* 여기서 반응형 시작 */
+.list__thumbnail img{
+  width: 100%;
 }
 
 .list__info {
+  flex:2;
   display: flex;
   flex-direction: column;
   font-size: 14px;
 }
 
-.list__info span:nth-child(2){
-    color: gray;
+.list__info span:nth-child(2) {
+  color: gray;
 }

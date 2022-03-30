@@ -1,4 +1,11 @@
 .videobox{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+}
+
+/* 630 */
+@media (max-width: 650px) {
+    .videobox{
+        flex-direction: column;
+    }
 }

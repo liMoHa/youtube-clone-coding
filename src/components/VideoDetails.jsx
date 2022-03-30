@@ -5,11 +5,11 @@ const VideoDetails = ({ video, isVideoClicked }) => {
   return (
     <article
       className={styles.videoDetails}
-      style={{ display: isVideoClicked ? "block" : "none" }}
+      style={{ display: isVideoClicked ? "flex" : "none" }}
     >
       <div className={styles.videoDetails__video}>
         <iframe
-          width="600"
+          // width="600"
           height="315"
           src={`https://www.youtube.com/embed/${video.id}`}
           title="YouTube video player"
