@@ -29,7 +29,7 @@ const VideoLists = ({
           const id = isSubmitted ? item.id.videoId : item.id;
           const title = item.snippet.title;
           const channelTitle = item.snippet.channelTitle;
-          const thumbnail = item.snippet.thumbnails.default.url;
+          const thumbnail = item.snippet.thumbnails.medium.url;
           const description = item.snippet.description;
           const key = item.snippet.channelId + title;
 
