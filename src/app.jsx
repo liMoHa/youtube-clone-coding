@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import YoutubeHeader from "./components/video_header/YoutubeHeader";
-import VideoDetails from "./components/video_details/VideoDetails";
 import VideoList from "./components/video_list/VideoList";
 import styles from "./app.module.css";
 
 function App() {
-  const [clickedVideo, setClickedVideo] = useState({});
+  
+  const [url, setUrl] = useState("https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyBiq5tTOVn2WDiVirL485vGoPPZCmbbvZQ");
+  const [videoList, setVideoList] = useState([]);
   const [isVideoClicked, setVideoClicked] = useState(false);
-  //  "https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyBiq5tTOVn2WDiVirL485vGoPPZCmbbvZQ"
-  const [url, setUrl] = useState("");
   const [isSubmitted, setSubmitted] = useState(false); // video랑 search랑 id가 달라서 이를 구별하기 위해 필요
+  const [clickedVideo, setClickedVideo] = useState({});
+  
+  useEffect(() => {
+    axios
+      .get(url)
+      .then((response) => {
+        const video = response.data.items;
+        setVideoList(video);
+      })
+      .catch((err) => console.log(err));
+      
+  },[url]);
 
   const handleGetSrc = (keyword) => {
     // keyword만 prop으로 주는 게 좋을까..?
@@ -29,11 +41,11 @@ function App() {
     <>
       <YoutubeHeader onSubmitValue={handleGetSrc} />
       <main className={styles.videobox}>
-        <VideoDetails video={clickedVideo} isVideoClicked={isVideoClicked} isSubmitted={isSubmitted}/>
         <VideoList
-          isVideoClicked={isVideoClicked}
+          videoList={videoList}
+          clickedVideo={clickedVideo}
           onClickVideo={handleClickVideo}
-          url={url}
+          isVideoClicked={isVideoClicked}
           isSubmitted={isSubmitted}
         />
       </main>

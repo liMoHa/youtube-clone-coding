@@ -1,8 +1,17 @@
+.videobox{
+  display: flex;
+}
+
 .videolists {
-  /* flex-basis: 1; */
   flex-shrink: 3;
-  flex-grow: 1;
   margin: 0;
   display: grid;
   gap: 5px 10px;
+}
+
+/* 630 */
+@media (max-width: 650px) {
+  .videobox{
+      flex-direction: column;
+  }
 }
