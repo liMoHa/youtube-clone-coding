@@ -6,38 +6,3 @@
   display: grid;
   gap: 5px 10px;
 }
-
-.videolists__list {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  box-shadow: 2px 2px 5px rgb(214, 214, 214);
-  transition: transform 0.2s ease;
-  cursor: pointer;
-}
-
-.videolists__list:hover {
-  transform: scale(1.05);
-}
-
-.list__thumbnail {
-  flex:1.2;
-  margin-right: 10px; 
-}
-
-/* 여기서 반응형 시작 */
-.list__thumbnail img{
-  width: 100%;
-}
-
-.list__info {
-  flex:2;
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-}
-
-.list__info span:nth-child(2) {
-  color: gray;
-}
