@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import styles from '../style/youtubeHeader.module.css';
+import styles from './youtubeHeader.module.css';
 
 const YoutubeHeader = ({onSubmitValue}) => {
     const inputRef = useRef();

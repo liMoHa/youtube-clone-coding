@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import YoutubeHeader from "./components/YoutubeHeader";
-import VideoDetails from "./components/VideoDetails";
-import VideoLists from "./components/VideoLists";
-import styles from "./style/app.module.css";
+import YoutubeHeader from "./components/video_header/YoutubeHeader";
+import VideoDetails from "./components/video_details/VideoDetails";
+import VideoList from "./components/video_list/VideoList";
+import styles from "./app.module.css";
 
 function App() {
   const [video, setVideo] = useState({});
@@ -21,13 +21,12 @@ function App() {
     setVideoClicked(false);
   };
 
-
   return (
     <>
       <YoutubeHeader onSubmitValue={handleGetSrc} />
       <main className={styles.videobox}>
         <VideoDetails video={video} isVideoClicked={isVideoClicked} />
-        <VideoLists
+        <VideoList
           onClickVideo={handleSetVideo}
           isVideoClicked={isVideoClicked}
           setVideoClicked={setVideoClicked}

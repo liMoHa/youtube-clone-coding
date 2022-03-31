@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import styles from "../style/videoLists.module.css";
+import styles from "./videoLists.module.css";
 
 const VideoLists = ({
   onClickVideo,

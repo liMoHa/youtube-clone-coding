@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../style/videoDetails.module.css";
+import styles from "./videoDetails.module.css";
 
 const VideoDetails = ({ video, isVideoClicked }) => {
   return (
