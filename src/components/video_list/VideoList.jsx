@@ -24,17 +24,12 @@ const VideoLists = ({
           padding: isVideoClicked ? "0" : "0 10px",
         }}
       >
-        {videoList.map((video) => (
-          <VideoItem
-            key={
-              isSubmitted
-                ? video.id.videoId + `${video.snippet.title}`
-                : video.id + `${video.snippet.title}`
-            }
-            onClickVideo={onClickVideo}
-            video={video}
-          />
-        ))}
+        {videoList.map((video) => {
+          const key = video.snippet.channelId + video.snippet.title;
+          return (
+            <VideoItem key={key} onClickVideo={onClickVideo} video={video} />
+          );
+        })}
       </ul>
     </main>
   );

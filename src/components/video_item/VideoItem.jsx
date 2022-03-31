@@ -5,7 +5,6 @@ const VideoItem = ({video, onClickVideo}) => {
   const title = video.snippet.title;
   const channelTitle = video.snippet.channelTitle;
   const thumbnail = video.snippet.thumbnails.medium.url;
-  const key = video.snippet.channelId + title;
   
   const onClick = () => {
     onClickVideo(video);
@@ -14,7 +13,6 @@ const VideoItem = ({video, onClickVideo}) => {
     <li
       onClick={onClick}
       className={styles.videolists__list}
-      key={key}
     >
       {/* div에 background-img로 넣는 거랑 img로 넣는 거 상황 구분? */}
       <div className={styles.list__thumbnail}>
