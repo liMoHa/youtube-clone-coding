@@ -24,11 +24,14 @@
 
 .list__info {
   flex:2;
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
-.list__info span:nth-child(2) {
+.list__info p{
+  margin: 0;
+}
+
+.list__info p:nth-child(2) {
   color: gray;
+  margin-top: 5px;
 }
