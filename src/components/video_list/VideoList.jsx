@@ -8,14 +8,12 @@ const VideoLists = ({
   clickedVideo,
   onClickVideo,
   isVideoClicked,
-  isSubmitted,
 }) => {
   return (
     <main className={styles.videobox}>
       <VideoDetails
         video={clickedVideo}
         isVideoClicked={isVideoClicked}
-        isSubmitted={isSubmitted}
       />
       <ul
         className={styles.videolists}

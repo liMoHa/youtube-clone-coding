@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./videoDetails.module.css";
 
-const VideoDetails = ({ video, isVideoClicked, isSubmitted }) => {
-  const id = isVideoClicked && isSubmitted ? video.id.videoId : video.id;
+const VideoDetails = ({ video, isVideoClicked }) => {
+  const id = isVideoClicked ? video.id: undefined;
   const title = isVideoClicked ? video.snippet.title : undefined;
   const channelTitle = isVideoClicked ? video.snippet.channelTitle : undefined;
   const description = isVideoClicked ? video.snippet.description : undefined;

@@ -14,14 +14,12 @@ const VideoItem = ({video, onClickVideo}) => {
       onClick={onClick}
       className={styles.videolists__list}
     >
-      {/* div에 background-img로 넣는 거랑 img로 넣는 거 상황 구분? */}
       <div className={styles.list__thumbnail}>
         <img src={thumbnail} alt="thumbnail" />
       </div>
       <div className={styles.list__info}>
-        {/* 여기 무슨 태그로 했을까? */}
-        <span>{title}</span>
-        <span>{channelTitle}</span>
+        <p>{title}</p>
+        <p>{channelTitle}</p>
       </div>
     </li>
   );
