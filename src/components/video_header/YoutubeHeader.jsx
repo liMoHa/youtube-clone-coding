@@ -1,11 +1,11 @@
 import React, {useRef} from 'react';
 import styles from './youtubeHeader.module.css';
 
-const YoutubeHeader = ({onSubmitValue}) => {
+const YoutubeHeader = ({onSearch}) => {
     const inputRef = useRef();
     const onSubmit = (e) =>{
         e.preventDefault();
-        onSubmitValue(inputRef.current.value);
+        onSearch(inputRef.current.value);
     }
     return (
         <header className={styles.ytheader}>
