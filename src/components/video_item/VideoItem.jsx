@@ -1,6 +1,7 @@
 import React from "react";
+import { memo } from "react/cjs/react.production.min";
 import styles from "./videoItem.module.css";
-const VideoItem = ({ video, video: { snippet }, onClickVideo }) => {
+const VideoItem = memo(({ video, video: { snippet }, onClickVideo }) => {
   const title = snippet.title;
   const channelTitle = snippet.channelTitle;
   const thumbnail = snippet.thumbnails.medium.url;
@@ -16,5 +17,5 @@ const VideoItem = ({ video, video: { snippet }, onClickVideo }) => {
       </div>
     </li>
   );
-};
+});
 export default VideoItem;

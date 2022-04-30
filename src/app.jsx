@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import YoutubeHeader from "./components/video_header/YoutubeHeader";
 import VideoList from "./components/video_list/VideoList";
@@ -9,24 +9,26 @@ function App({ youtube }) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
-  useEffect(() => {
-    youtube.mostPopular().then((items) => setVideos(items));
-  }, []);
-
-  const search = (query) => {
-    youtube.search(query).then((items) => setVideos(items));
-    setSelectedVideo(null);
-  };
+  const search = useCallback(
+    (query) => {
+      youtube.search(query).then((items) => setVideos(items));
+      setSelectedVideo(null);
+    },
+    [youtube]
+  );
 
   const handleClickVideo = (video) => {
     setSelectedVideo(video);
   };
 
+  useEffect(() => {
+    youtube.mostPopular().then((items) => setVideos(items));
+  }, [youtube]);
   return (
     <>
       <YoutubeHeader onSearch={search} />
       <section className={styles.container}>
-        { selectedVideo && <VideoDetails video={selectedVideo} />}
+        {selectedVideo && <VideoDetails video={selectedVideo} />}
         <VideoList
           videos={videos}
           onClickVideo={handleClickVideo}
