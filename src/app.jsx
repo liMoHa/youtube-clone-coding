@@ -8,7 +8,6 @@ import styles from "./app.module.css";
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     youtube.mostPopular().then((items) => setVideos(items));
@@ -16,23 +15,22 @@ function App({ youtube }) {
 
   const search = (query) => {
     youtube.search(query).then((items) => setVideos(items));
-    setIsSubmitted(true);
+    setSelectedVideo(null);
   };
 
   const handleClickVideo = (video) => {
     setSelectedVideo(video);
-    setIsSubmitted(false);
   };
 
   return (
     <>
       <YoutubeHeader onSearch={search} />
       <section className={styles.container}>
-        {!isSubmitted && selectedVideo && <VideoDetails video={selectedVideo} />}
+        { selectedVideo && <VideoDetails video={selectedVideo} />}
         <VideoList
           videos={videos}
           onClickVideo={handleClickVideo}
-          display={!isSubmitted && selectedVideo ? "list" : "grid"}
+          display={selectedVideo ? "list" : "grid"}
         />
       </section>
     </>
