@@ -1,4 +1,4 @@
-.videolists__list {
+.video {
   list-style: none;
   display: flex;
   align-items: center;
@@ -8,30 +8,30 @@
   cursor: pointer;
 }
 
-.videolists__list:hover {
+.video:hover {
   transform: scale(1.05);
 }
 
-.list__thumbnail {
+.thumbnail {
   flex:1.2;
   margin-right: 10px; 
 }
 
 /* 여기서 반응형 시작 */
-.list__thumbnail img{
+.thumbnail img{
   width: 100%;
 }
 
-.list__info {
+.info {
   flex:2;
   font-size: 0.9rem;
 }
 
-.list__info p{
+.info p{
   margin: 0;
 }
 
-.list__info p:nth-child(2) {
+.info p:nth-child(2) {
   color: gray;
   margin-top: 5px;
 }

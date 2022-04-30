@@ -1,36 +1,20 @@
 import React from "react";
 import VideoItem from "../video_item/VideoItem";
-import VideoDetails from "../video_details/VideoDetails";
-import styles from "./videoLists.module.css";
+import styles from "./videoList.module.css";
 
-const VideoLists = ({
-  videoList,
-  clickedVideo,
-  onClickVideo,
-  isVideoClicked,
-}) => {
+const VideoList = ({ videos, onClickVideo, display }) => {
+  console.log("display", display);
+  const displayType = display === "list" ? styles.list : styles.grid;
   return (
-    <main className={styles.videobox}>
-      <VideoDetails
-        video={clickedVideo}
-        isVideoClicked={isVideoClicked}
-      />
-      <ul
-        className={styles.videolists}
-        style={{
-          gridTemplateColumns: isVideoClicked ? "1fr" : "1fr 1fr",
-          padding: isVideoClicked ? "0" : "0 10px",
-        }}
-      >
-        {videoList.map((video) => {
-          const key = video.snippet.channelId + video.snippet.title;
-          return (
-            <VideoItem key={key} onClickVideo={onClickVideo} video={video} />
-          );
-        })}
-      </ul>
-    </main>
+    <ul className={`${styles.videolist} ${displayType}`}>
+      {videos.map((video) => {
+        const key = video.snippet.channelId + video.snippet.title;
+        return (
+          <VideoItem key={key} video={video} onClickVideo={onClickVideo} />
+        );
+      })}
+    </ul>
   );
 };
 
-export default VideoLists;
+export default VideoList;

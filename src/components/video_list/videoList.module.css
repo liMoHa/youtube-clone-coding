@@ -1,0 +1,12 @@
+.videolist.list {
+  flex:3;
+  display: flex;
+  flex-direction: column;
+}
+
+.videolist.grid {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 10px;
+}

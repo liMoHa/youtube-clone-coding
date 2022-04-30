@@ -1,23 +1,16 @@
 import React from "react";
 import styles from "./videoItem.module.css";
+const VideoItem = ({ video, video: { snippet }, onClickVideo }) => {
+  const title = snippet.title;
+  const channelTitle = snippet.channelTitle;
+  const thumbnail = snippet.thumbnails.medium.url;
 
-const VideoItem = ({video, onClickVideo}) => {
-  const title = video.snippet.title;
-  const channelTitle = video.snippet.channelTitle;
-  const thumbnail = video.snippet.thumbnails.medium.url;
-  
-  const onClick = () => {
-    onClickVideo(video);
-  }
   return (
-    <li
-      onClick={onClick}
-      className={styles.videolists__list}
-    >
-      <div className={styles.list__thumbnail}>
+    <li className={styles.video} onClick={() => onClickVideo(video)}>
+      <div className={styles.thumbnail}>
         <img src={thumbnail} alt="thumbnail" />
       </div>
-      <div className={styles.list__info}>
+      <div className={styles.info}>
         <p>{title}</p>
         <p>{channelTitle}</p>
       </div>
