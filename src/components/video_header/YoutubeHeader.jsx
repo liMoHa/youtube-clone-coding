@@ -9,7 +9,7 @@ const YoutubeHeader = ({onSearch}) => {
     }
     return (
         <header className={styles.ytheader}>
-            <a href='/' className={styles.ytheader__logo}>
+            <a href='/youtube-clone-coding/' className={styles.ytheader__logo}>
                 <img src="./images/logo.png" alt="youtube logo" className={styles.ytheader__img} />
                 <span className={styles.ytheader__title}>YouTube</span>
             </a>
